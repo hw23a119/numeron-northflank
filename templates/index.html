@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FWKVTL0L6T"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-FWKVTL0L6T');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numeron</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Numeron</h1>
+
+        {% if session.get('last_answer') %}
+        <p>前回の答え：{{ session['last_answer'] }}</p>
+        {% endif %}
+
+
+        <div class="rule-box">
+            <p><strong>EAT：</strong>位置と数字が一致</p>
+            <p><strong>BITE：</strong>数字だけ一致（位置は違う）</p>
+        </div>
+
+        <form method="POST">
+            <input type="text" name="guess" placeholder="3桁の数字" maxlength="3">
+            <button type="submit">判定</button>
+        </form>
+
+        <a href="{{ url_for('reset') }}"><button>🔄 新しい数字</button></a>
+        <a href="{{ url_for('hint') }}"><button>💡 ヒント</button></a>
+
+        {% if request.args.get('hint') %}
+        <p class="hint">{{ request.args.get('hint') }}</p>
+        {% endif %}
+
+        <div class="result">{{ result }}</div>
+
+        <div class="history-box">
+            <h3>履歴（最新5件）</h3>
+            {% for item in history %}
+            <div class="history-item">
+                <strong>{{ item.guess }}</strong> → {{ item.eat }} EAT / {{ item.bite }} BITE
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>

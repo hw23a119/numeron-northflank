@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f3f3f3;
+    margin: 0;
+}
+
+.container {
+    max-width: 360px;
+    margin: 20px auto;
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+.rule-box {
+    background: #eef6ff;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+#guessInput {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.button-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 6px;
+}
+
+button {
+    flex: 1;
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    background: #4CAF50;
+    color: white;
+    border-radius: 6px;
+}
+
+#resetBtn {
+    background: #d9534f;
+}
+
+#reloadBtn {
+    background: #0275d8;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #fafafa;
+    border: 1px solid #ddd;
+    padding: 8px;
+    margin: 4px 0;
+    border-radius: 6px;
+}
